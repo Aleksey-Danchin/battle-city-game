@@ -47,8 +47,8 @@
 
                 const promise = Loader
                     .loadJson(address)
-                    .then(image => {
-                        this.resources.jsons[name] = image
+                    .then(json => {
+                        this.resources.jsons[name] = json
                         
                         if (this.loadOrder.jsons.includes(jsonData)) {
                             const index = this.loadOrder.jsons.indexOf(jsonData)
