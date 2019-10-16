@@ -7,29 +7,67 @@
     <title>Battle city</title>
 </head>
 <body>
-    <!-- 1) Loader -->
-    <!-- 2) Application -->
-    <!-- 3) Rendring -->
+    <script src="engine/Container.js"></script>
     <script src="engine/Loader.js"></script>
+    <script src="engine/Renderer.js"></script>
+    <script src="engine/Sprite.js"></script>
 
     <script>
+const { Loader, Renderer, Sprite, Container } = GameEngine
 
-        
-const { Loader } = GameEngine
+let sprite = null
 
 const loader = new Loader
+const renderer = new Renderer({
+    width: 500,
+    height: 500,
+    background: 'gray',
+
+    update (timestamp) {
+        if (!sprite) {
+            return
+        }
+
+        sprite.frame.x = sprite.texture.width / 2 + 200 * Math.cos(timestamp / 200)
+        sprite.frame.y = sprite.texture.height / 2 + 200 * Math.sin(timestamp / 200)
+
+        sprite.x = renderer.canvas.width / 2 + 200 * Math.cos(timestamp / 200)
+        sprite.y = renderer.canvas.height / 2 + 200 * Math.sin(timestamp / 200)
+    } 
+})
+
+document.body.append(renderer.canvas)
 
 loader.addImage('bunny', 'static/bunny.jpeg')
 loader.addJson('persons', 'static/persons.json')
 
 loader.load(() => {
-    console.log('Images loaded')
+    sprite = new Sprite(loader.getImage('bunny'), {
+        scale: 0.25,
+        anchorX: 0.5,
+        anchorY: 0.5
+    })
+
+    const container = new Container()
+    renderer.stage.add(container)
+    container.add(sprite)
+
+    // sprite.absoluteX = 0
+    // sprite.absoluteY = 0
+
+    // sprite.frame.x = 278
+    // sprite.frame.y = 250
+    // sprite.frame.width = 200
+    // sprite.frame.height = 170
+
+    // sprite.width = 200
+    // sprite.height = 170
+
+    // sprite.x = 100
+    // sprite.y = 300
+    // sprite.width = 100
+    // sprite.height = 100
 })
-        
-// Loader.loadImage('static/bunny.jpeg').then(image => {
-//     console.log(image)
-//     document.body.append(image)
-// })
 
     </script>
 </body>
