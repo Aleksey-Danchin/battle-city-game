@@ -7,6 +7,7 @@
     <title>Battle city</title>
 </head>
 <body>
+    <script src="engine/DisplayObject.js"></script>
     <script src="engine/Container.js"></script>
     <script src="engine/Loader.js"></script>
     <script src="engine/Renderer.js"></script>
@@ -15,7 +16,9 @@
     <script>
 const { Loader, Renderer, Sprite, Container } = GameEngine
 
-let sprite = null
+let sprite1 = null
+let sprite2 = null
+let container = null
 
 const loader = new Loader
 const renderer = new Renderer({
@@ -24,15 +27,20 @@ const renderer = new Renderer({
     background: 'gray',
 
     update (timestamp) {
-        if (!sprite) {
+        if (!sprite1 || !sprite2) {
             return
         }
 
-        sprite.frame.x = sprite.texture.width / 2 + 200 * Math.cos(timestamp / 200)
-        sprite.frame.y = sprite.texture.height / 2 + 200 * Math.sin(timestamp / 200)
+        container.rotation = timestamp / 1000
+        sprite1.rotation = timestamp / 1000
+        sprite2.rotation = -timestamp / 1000
+        // sprite.rotation = 0
 
-        sprite.x = renderer.canvas.width / 2 + 200 * Math.cos(timestamp / 200)
-        sprite.y = renderer.canvas.height / 2 + 200 * Math.sin(timestamp / 200)
+        // sprite.frame.x = sprite.texture.width / 2 + 200 * Math.cos(timestamp / 200)
+        // sprite.frame.y = sprite.texture.height / 2 + 200 * Math.sin(timestamp / 200)
+
+        // sprite.x = renderer.canvas.width / 2 + 200 * Math.cos(timestamp / 200)
+        // sprite.y = renderer.canvas.height / 2 + 200 * Math.sin(timestamp / 200)
     } 
 })
 
@@ -42,15 +50,36 @@ loader.addImage('bunny', 'static/bunny.jpeg')
 loader.addJson('persons', 'static/persons.json')
 
 loader.load(() => {
-    sprite = new Sprite(loader.getImage('bunny'), {
+    sprite1 = new Sprite(loader.getImage('bunny'), {
+        x: 100,
+        y: 200,
+        // rotation: Math.PI / 2,
         scale: 0.25,
         anchorX: 0.5,
         anchorY: 0.5
     })
 
-    const container = new Container()
+    sprite2 = new Sprite(loader.getImage('bunny'), {
+        x: 400,
+        y: 200,
+        // rotation: Math.PI / 2,
+        scale: 0.25,
+        anchorX: 0.5,
+        anchorY: 0.5
+    })
+
+    container = new Container()
+    container.x = 100
+    container.y = 100
+    // container.rotation = Math.PI / 4
+    container.anchorX = 0.5
+    container.anchorY = 0.5
+    container.width = renderer.canvas.width
+    container.height = renderer.canvas.height
+
     renderer.stage.add(container)
-    container.add(sprite)
+    container.add(sprite1)
+    container.add(sprite2)
 
     // sprite.absoluteX = 0
     // sprite.absoluteY = 0
@@ -68,7 +97,6 @@ loader.load(() => {
     // sprite.width = 100
     // sprite.height = 100
 })
-
     </script>
 </body>
 </html>
