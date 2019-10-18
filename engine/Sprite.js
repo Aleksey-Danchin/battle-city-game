@@ -25,24 +25,26 @@
         }
 
         draw (canvas, context) {
-            context.save()
-            context.translate(this.x, this.y)
-            context.rotate(-this.rotation)
-            context.scale(this.scaleX, this.scaleY)
+            super.draw(() => {
+                context.save()
+                context.translate(this.x, this.y)
+                context.rotate(-this.rotation)
+                context.scale(this.scaleX, this.scaleY)
 
-            context.drawImage(
-                this.texture,
-                this.frame.x,
-                this.frame.y,
-                this.frame.width,
-                this.frame.height,
-                this.absoluteX - this.x,
-                this.absoluteY - this.y,
-                this.width,
-                this.height
-            )
-
-            context.restore()
+                context.drawImage(
+                    this.texture,
+                    this.frame.x,
+                    this.frame.y,
+                    this.frame.width,
+                    this.frame.height,
+                    this.absoluteX - this.x,
+                    this.absoluteY - this.y,
+                    this.width,
+                    this.height
+                )
+    
+                context.restore()
+            })
         }
     }
 
