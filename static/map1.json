@@ -1,0 +1,17 @@
+{
+    "map": [
+        [null, null, null, null, null, null, null, null, null, null, null, null, null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, null, null, null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null, null, null, null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null, "wall", null],
+        [null, "wall", null, "wall", null, "wall", "wall", "wall", null, "wall", null, "wall", null],
+        [null, null, null, null, "tank1", "wall", "eagle", "wall", "tank2", null, null, null, null]
+    ]
+}

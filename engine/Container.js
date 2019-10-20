@@ -17,6 +17,14 @@
             }
         }
 
+        tick (timestamp) {
+            for (const displayObject of this.displayObjects) {
+                if (displayObject.tick) {
+                    displayObject.tick(timestamp)
+                }
+            }
+        }
+
         remove (...displayObjects) {
             for (const displayObject of displayObjects) {
                 if (this.displayObjects.includes(displayObject)) {
