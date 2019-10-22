@@ -3,8 +3,32 @@
         "moveUp": {
             "duration": 300,
             "keys": [
-                ["tank", "yellow", "type1", "up", "frame1"],
-                ["tank", "yellow", "type1", "up", "frame2"]
+                ["tank", "up", "frame1"],
+                ["tank", "up", "frame2"]
+            ]
+        },
+
+        "moveDown": {
+            "duration": 300,
+            "keys": [
+                ["tank", "down", "frame1"],
+                ["tank", "down", "frame2"]
+            ]
+        },
+
+        "moveLeft": {
+            "duration": 300,
+            "keys": [
+                ["tank", "left", "frame1"],
+                ["tank", "left", "frame2"]
+            ]
+        },
+
+        "moveRight": {
+            "duration": 300,
+            "keys": [
+                ["tank", "right", "frame1"],
+                ["tank", "right", "frame2"]
             ]
         }
     },
@@ -179,30 +203,9 @@
             "height": 13
         },
         {
-            "keys": ["wall", "brick", "type1"],
+            "keys": ["wall", "brick"],
             "x": 256,
             "y": 0,
-            "width": 8,
-            "height": 8
-        },
-        {
-            "keys": ["wall", "brick", "type2"],
-            "x": 264,
-            "y": 0,
-            "width": 8,
-            "height": 8
-        },
-        {
-            "keys": ["wall", "brick", "type3"],
-            "x": 256,
-            "y": 8,
-            "width": 8,
-            "height": 8
-        },
-        {
-            "keys": ["wall", "brick", "type4"],
-            "x": 264,
-            "y": 8,
             "width": 8,
             "height": 8
         },
