@@ -1,4 +1,11 @@
-class Party extends GameEngine.Scene {
+import { Scene, ArcadePhysics, Body, Util } from '../engine'
+
+import Topology from './Topology'
+import Tank from './Tank'
+import Bullet from './Bullet'
+import EnemyTank from './EnemyTank'
+
+export default class Party extends Scene {
     constructor (args = {}) {
         super({
             name: 'party',
@@ -23,7 +30,7 @@ class Party extends GameEngine.Scene {
 
         this.partyData = loader.getJson('party')
         
-        this.arcadePhysics = new GameEngine.ArcadePhysics
+        this.arcadePhysics = new ArcadePhysics
 
         this.arcadePhysics.add(new Body(null, {
             static: true,

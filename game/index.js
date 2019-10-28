@@ -1,8 +1,8 @@
-const DEBUG_MODE = false
+import { Body, Game, Scene, ArcadePhysics, Util, Sprite } from '../engine'
+import Intro from './Intro'
+import Party from './Party'
 
-const { Body, Game, Scene, ArcadePhysics, Util, Sprite } = GameEngine
-
-const game = new Game({
+export default new Game({
     el: document.body,
     width: 650,
     height: 650,

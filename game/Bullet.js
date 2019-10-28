@@ -1,4 +1,6 @@
-class Bullet extends GameEngine.Body {
+import { Body, Util } from '../engine'
+
+export default class Bullet extends Body {
     constructor (originalArgs = {}) {
         const args = Object.assign({
             scale: 2,

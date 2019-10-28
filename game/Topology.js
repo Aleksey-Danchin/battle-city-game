@@ -1,4 +1,10 @@
-class Topology extends GameEngine.Container {
+import { Container, Body } from '../engine'
+
+import { DEBUG_MODE } from './setting.json'
+
+import Bullet from './Bullet'
+
+export default class Topology extends Container {
     constructor (args = {}) {
         super({})
 
@@ -24,7 +30,7 @@ class Topology extends GameEngine.Container {
         for (const [x, y] of this.getCoordinats('brick')) {
             for (let dx = 0; dx <= 1; dx++) {
                 for (let dy = 0; dy <= 1; dy++) {
-                    const body = new GameEngine.Body(Topology.texture, {
+                    const body = new Body(Topology.texture, {
                         debug: DEBUG_MODE,
                         static: true,
                         anchorX: dx,

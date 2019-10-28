@@ -1,4 +1,10 @@
-class Tank extends GameEngine.Body {
+import { Body, Util } from '../engine'
+
+import { DEBUG_MODE } from './setting.json'
+
+import Bullet from './Bullet'
+
+export default class Tank extends Body {
     constructor (originalArgs = {}) {
         const args = Object.assign({
             scale: 3.5,
